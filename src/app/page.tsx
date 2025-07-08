@@ -1,5 +1,4 @@
 import { Input } from "@/components/Input";
-import { IoMdEyeOff } from "react-icons/io";
 
 export default function Home() {
   return (
@@ -9,28 +8,21 @@ export default function Home() {
         <div className="flex flex-col gap-4 w-full">
           <div className="flex gap-3 w-full">
             <div className="w-1/2">
-              <p>Name <span className="text-red-700">*</span></p>
-              <Input inputlabel="Name" inputType="text" />
+              <Input inputImp inputlabel="Name" inputType="text" />
             </div>
             <div className="w-1/2">
-              <p>Email <span className="text-red-700">*</span></p>
-              <Input inputlabel="Email" inputType="text" />
+              <Input inputImp inputlabel="Email" inputType="text" />
             </div>
+          </div>
+          <div>
+            <Input inputlabel="Phone Number" inputType="text" />
           </div>
           <div className="flex gap-3 w-full">
             <div className="w-1/2">
-              <p>Password <span className="text-red-700">*</span></p>
-              <div className="flex py-2 px-2 border">
-                <input type="password" className=" text-sm focus:outline-0" />
-                <IoMdEyeOff />
-              </div>
+              <Input inputImp inputType="password" inputlabel="Password" />
             </div>
             <div className="w-1/2">
-              <p>Confirm Password <span className="text-red-700">*</span></p>
-              <div className="flex py-2 px-2 border">
-                <input type="password" className=" text-sm focus:outline-0" />
-                <IoMdEyeOff />
-              </div>
+              <Input inputImp inputType="password" inputlabel="Confirm Password" />
             </div>
           </div>
           <div>
