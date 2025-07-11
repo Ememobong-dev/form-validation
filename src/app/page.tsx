@@ -14,11 +14,17 @@ export default function Home() {
   })
 
 
-  const handleInputChange = () => {
+  const handleInputChange = (val: string, identifier: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      [identifier] : val
+    }))
    
 
   }
 
+
+  console.log("I am formData" ,  formData)
 
 
   return (
@@ -28,26 +34,28 @@ export default function Home() {
         <div className="flex flex-col gap-4 w-full">
           <div className="flex gap-3 w-full">
             <div className="w-1/2">
-              <Input inputVal={formData.name} inputName="name" handleInputChange={handleInputChange} inputImp inputlabel="Name" inputType="text" />
+              <Input inputVal={formData.name}  onChangeHandler={(val) => handleInputChange(val, "name")} inputImp inputlabel="Name" inputType="text" />
             </div>
             <div className="w-1/2">
-              <Input inputVal={formData.email} inputName="email" handleInputChange={handleInputChange} inputImp inputlabel="Email" inputType="text" />
+              <Input inputVal={formData.email} onChangeHandler={(val) => handleInputChange(val, "email")} inputImp inputlabel="Email" inputType="text" />
             </div>
           </div>
           <div>
-            <Input inputVal={formData.phoneNumber} inputName="phoneNumber" handleInputChange={handleInputChange} inputlabel="Phone Number" inputType="text" />
+            <Input inputVal={formData.phoneNumber} onChangeHandler={(val) => handleInputChange(val, "phoneNumber")} inputlabel="Phone Number" inputType="text" />
           </div>
           <div className="flex gap-3 w-full">
             <div className="w-1/2">
-              <Input inputVal={formData.password} inputName="password" handleInputChange={handleInputChange} inputImp inputType="password" inputlabel="Password" />
+              <Input inputVal={formData.password} onChangeHandler={(val) => handleInputChange(val, "password")} inputImp inputType="password" inputlabel="Password" />
             </div>
             <div className="w-1/2">
-              <Input inputVal={formData.confirmPassword} inputName="confirmPassword" handleInputChange={handleInputChange} inputImp inputType="password" inputlabel="Confirm Password" />
+              <Input inputVal={formData.confirmPassword}  onChangeHandler={(val) => handleInputChange(val, "confirmPassword")} inputImp inputType="password" inputlabel="Confirm Password" />
             </div>
           </div>
           <div>
             <p>Message</p>
-            <textarea value={formData.message} className="border text-sm w-full" name="" id="" rows={3}></textarea>
+            <textarea value={formData.message} 
+            onChange={(e) => handleInputChange(e.target.value, "message")}
+           className="border text-sm w-full" name="" id="" rows={3}></textarea>
           </div>
         </div>
         <button className="bg-purple-300 px-8 cursor-pointer rounded-md py-2 text-blue-950 mt-4 font-bold">Submit</button>
